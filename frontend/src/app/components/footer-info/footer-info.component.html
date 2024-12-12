@@ -1,0 +1,13 @@
+<div class="footer_info">
+  <div class="footer_info__col legal-disclaimer">
+    <h4 class="footer_info__title">{{ strings.legalDisclaimer.title }}</h4>
+    <p>{{ strings.legalDisclaimer.content }}</p>
+  </div>
+  <div class="footer_info__col image d-flex justify-content-center align-items-end">
+    <img class="footer_info__image" [src]="imageSrc" [alt]="imageAlt" />
+  </div>
+  <div class="footer_info__col contact">
+    <h4 class="footer_info__title">{{ strings.contact.title }}</h4>
+    <p [innerHTML]="strings.contact.content"></p>
+  </div>
+</div>

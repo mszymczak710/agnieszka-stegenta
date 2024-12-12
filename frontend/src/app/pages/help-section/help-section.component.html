@@ -1,0 +1,10 @@
+<div class="help-section">
+  <h2 class="help-section__title">{{ strings.title }}</h2>
+  <div class="help-section__cards">
+    @for (section of strings.sections; track section) {
+      <div class="help-section__card">
+        <p [innerHTML]="section"></p>
+      </div>
+    }
+  </div>
+</div>

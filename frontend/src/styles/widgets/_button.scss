@@ -1,0 +1,12 @@
+.mat-mdc-raised-button[disabled],
+.mat-mdc-raised-button.mat-mdc-button-disabled,
+.mat-mdc-raised-button:not(:disabled) {
+  padding: 1.25rem 1.75rem;
+  border: 4px solid $white;
+  border-radius: 2.6rem;
+}
+
+.mat-mdc-raised-button:not(:disabled).mat-accent {
+  background-color: $accent;
+  color: $white;
+}

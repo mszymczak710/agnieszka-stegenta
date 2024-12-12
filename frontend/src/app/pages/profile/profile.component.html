@@ -1,0 +1,15 @@
+<div class="profile">
+  <h2 class="profile__title">{{ strings.title }}</h2>
+  <div class="profile__content">
+    <div class="profile__image-wrapper">
+      <img class="profile__image" [src]="imageSrc" [alt]="imageAlt" />
+    </div>
+    <div class="profile__details">
+      <ul class="profile__list">
+        @for (detail of strings.details; track detail; let last = $last) {
+          <li [class.mb-3]="!last" [innerHTML]="detail"></li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

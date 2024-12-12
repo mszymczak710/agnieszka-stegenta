@@ -1,0 +1,25 @@
+<div class="consumer-reviews">
+  <h2 class="consumer-reviews__title">{{ strings.title }}</h2>
+
+  <div class="consumer-reviews__cards">
+    @for (review of reviews; track review.name) {
+      <div class="consumer-reviews__card">
+        <div class="mb-4">
+          @for (star of stars; track star) {
+            <mat-icon color="primary">star</mat-icon>
+          }
+        </div>
+        <p class="consumer-reviews__opinion">{{ review.opinion }}</p>
+        <div class="consumer-reviews__profile">
+          <img class="consumer-reviews__profile-img" [src]="review.imageSrc" [alt]="review.imageAlt" />
+          <div class="consumer-reviews__profile-info">
+            <span>
+              <strong>{{ review.name }}</strong>
+            </span>
+            <span>{{ review.city }}</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
