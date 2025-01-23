@@ -1,6 +1,7 @@
 require("dotenv").config({ path: "./src/.env" });
 const express = require("express");
 const fs = require("fs");
+const helmet = require("helmet");
 const path = require("path");
 const cors = require("cors");
 const validateEnvironment = require("../middleware/validateEnvironment");
@@ -83,6 +84,31 @@ const sendReplyEmail = async (fullName, email, description) => {
     ],
   });
 };
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        "script-src": [
+          "'self'",
+          "https://www.google.com",
+          "https://www.gstatic.com",
+        ],
+        "frame-src": [
+          "'self'",
+          "https://www.google.com",
+          "https://www.gstatic.com",
+        ],
+        "connect-src": [
+          "'self'",
+          "https://www.google.com",
+          "https://www.gstatic.com",
+        ],
+      },
+    },
+  })
+);
 
 app.post("/api/send-email", validateContactForm, async (req, res) => {
   const { full_name, phone_number, email, description, recaptcha } = req.body;

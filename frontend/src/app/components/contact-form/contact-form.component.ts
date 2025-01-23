@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -33,7 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ContactFormService, ContactFormFacade, ToastService],
 })
-export class ContactFormComponent implements AfterViewInit, OnInit {
+export class ContactFormComponent implements OnInit {
   @ViewChild('reCaptcha') reCaptchaComponent: RecaptchaComponent;
 
   fields: FormField[];
@@ -43,19 +43,30 @@ export class ContactFormComponent implements AfterViewInit, OnInit {
   strings = strings.contactForm;
   widgetId: number;
 
-  constructor(
-    private cdr: ChangeDetectorRef,
-    private contactFormFacade: ContactFormFacade,
-    private toastService: ToastService
-  ) {}
+  constructor(private cdr: ChangeDetectorRef, private contactFormFacade: ContactFormFacade, private toastService: ToastService) {}
 
   ngOnInit(): void {
     this.prepareFields();
     this.buildForm();
+    this.loadRecaptchaScript();
   }
 
-  ngAfterViewInit(): void {
-    this.initializeRecaptcha();
+  private loadRecaptchaScript(): void {
+    if (document.getElementById('recaptcha-script')) {
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.id = 'recaptcha-script';
+    script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
+    script.async = true;
+    script.defer = true;
+
+    script.onload = () => {
+      this.initializeRecaptcha();
+    };
+
+    document.head.appendChild(script);
   }
 
   private prepareFields(): void {
@@ -102,10 +113,18 @@ export class ContactFormComponent implements AfterViewInit, OnInit {
   }
 
   private initializeRecaptcha(): void {
-    this.widgetId = grecaptcha.render('recaptcha-container', {
-      sitekey: this.siteKey,
-      callback: this.onCaptchaResolved.bind(this),
-    });
+    const waitForRecaptcha = () => {
+      if (typeof grecaptcha !== 'undefined' && grecaptcha.render) {
+        this.widgetId = grecaptcha.render('recaptcha-container', {
+          sitekey: this.siteKey,
+          callback: this.onCaptchaResolved.bind(this),
+        });
+      } else {
+        setTimeout(waitForRecaptcha, 100);
+      }
+    };
+
+    waitForRecaptcha();
   }
 
   hasErrorMessage(fieldName: string): boolean {
