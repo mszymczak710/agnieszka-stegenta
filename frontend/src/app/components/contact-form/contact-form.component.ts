@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -33,7 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ContactFormService, ContactFormFacade, ToastService],
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements AfterViewInit, OnInit {
   @ViewChild('reCaptcha') reCaptchaComponent: RecaptchaComponent;
 
   fields: FormField[];
@@ -52,6 +52,9 @@ export class ContactFormComponent {
   ngOnInit(): void {
     this.prepareFields();
     this.buildForm();
+  }
+
+  ngAfterViewInit(): void {
     this.initializeRecaptcha();
   }
 
