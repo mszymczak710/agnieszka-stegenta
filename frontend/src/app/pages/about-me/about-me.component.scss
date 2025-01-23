@@ -6,6 +6,7 @@
   justify-content: center;
   padding: 3rem 15rem;
   background-color: $secondary;
+  min-height: 100%;
 
   @media (max-width: 767px) {
     padding: 3rem;
