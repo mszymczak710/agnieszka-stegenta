@@ -49,7 +49,7 @@ export const strings = {
         Agnieszka Stegenta <br /><br />
         W razie dodatkowych pytań, proszę dzwonić na numer podany poniżej: <br /><br />
         Pn.-Pt. w godz. 16-19<br />
-        <a class="footer_info__link" href="tel:+48694574115">+48 694 574 115</a>
+        <a class="footer_info__link" href="tel:+48572454937">+48 572 454 937</a>
       `,
       title: 'Kontakt',
     },
