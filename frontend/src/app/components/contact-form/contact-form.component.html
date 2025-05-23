@@ -1,0 +1,53 @@
+<div class="contact-form">
+  <h2 class="contact-form__title mb-5">{{ strings.title }}</h2>
+  <form [formGroup]="form">
+    <div class="row mt-4">
+      @for (field of fields; track field.name) {
+        <div class="col-6 d-flex flex-column">
+          <label class="ms-2" [for]="field.name">
+            {{ field.label }}
+            @if (field.required) {
+              <span>*</span>
+            }
+          </label>
+          <mat-form-field appearance="fill" [class.mb-5]="!form.get(field.name).pristine && hasErrorMessage(field.name)">
+            <input
+              matInput
+              [formControlName]="field.name"
+              [placeholder]="field.placeholder"
+              [required]="field.required"
+              [type]="field.type"
+            />
+            @if (hasErrorMessage(field.name)) {
+              <mat-error>
+                {{ getErrorMessage(field.name) }}
+              </mat-error>
+            }
+          </mat-form-field>
+        </div>
+      }
+    </div>
+
+    <div class="contact-form__actions">
+      <re-captcha (resolved)="onRecaptchaResolved($event)" [siteKey]="siteKey" [formControl]="recaptchaControl"></re-captcha>
+      @if (form.get('recaptcha').hasError('backend')) {
+        <mat-error class="my-1">
+          {{ form.get('recaptcha').getError('backend') }}
+        </mat-error>
+      }
+      <button
+        mat-raised-button
+        class="contact-form__actions-btn"
+        color="accent"
+        [disabled]="form.invalid || saving"
+        type="submit"
+        (click)="submit($event)"
+      >
+        {{ strings.button }}
+        @if (saving) {
+          <mat-spinner class="spinner" mode="indeterminate" [diameter]="30"></mat-spinner>
+        }
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,67 @@
+@import 'utils';
+
+.footer_info {
+  display: flex;
+  text-align: center;
+  color: $white;
+  padding: 2rem 35rem;
+  border-top: 1px solid $white;
+  border-bottom: 1px solid $white;
+
+  @media (max-width: 767px) {
+    padding: 2.5rem 0;
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    padding: 2.5rem 10rem;
+  }
+
+  @media (min-width: 1280px) and (max-width: 1600px) {
+    padding: 2rem 15rem;
+  }
+
+  &__col {
+    flex-basis: 33%;
+
+    @media (max-width: 767px) {
+      &.contact {
+        order: 1;
+      }
+
+      &.image {
+        order: 3;
+        border-top: 1px solid $white;
+      }
+
+      &.legal-disclaimer {
+        order: 2;
+        padding: 5rem 10rem;
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.07rem;
+
+    @media (max-width: 767px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__image {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+}
+
+::ng-deep {
+  .footer_info__link {
+    text-decoration: none;
+    color: $white;
+    font-weight: bold;
+  }
+}

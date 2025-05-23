@@ -1,0 +1,87 @@
+@import 'utils';
+
+.consumer-reviews {
+  margin: 7.5rem;
+
+  @media (max-width: 767px) {
+    margin: 2.5rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    margin: 5rem;
+  }
+
+  &__title {
+    color: $primary;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5rem;
+
+    @media (max-width: 767px) {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+
+    @media (max-width: 1279px) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  &__card {
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.071);
+    padding: 5rem;
+    flex-basis: 33%;
+
+    @media (max-width: 767px) {
+      padding: 3rem;
+    }
+
+    @media (min-width: 1280px) and (max-width: 1600px) {
+      padding: 3rem;
+    }
+  }
+
+  &__opinion {
+    font-size: 1rem;
+    min-height: 10rem;
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      min-height: 6rem;
+    }
+
+    @media (min-width: 1280px) and (max-width: 1600px) {
+      min-height: 12rem;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__profile-img {
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &__profile-info {
+    display: flex;
+    height: 5rem;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 0.9rem;
+  }
+}

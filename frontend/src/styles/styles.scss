@@ -1,0 +1,25 @@
+@import 'utils/utils';
+@import 'vendors/vendors';
+@import 'widgets/widgets';
+@import 'theme/theme';
+@import 'ngx-toastr/toastr';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: var(--fs-base);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}

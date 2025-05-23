@@ -1,0 +1,47 @@
+@import 'utils';
+
+.contact-form {
+  padding: 0 35rem;
+
+  @media (max-width: 767px) {
+    padding: 0 2.5rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    padding: 0 10rem;
+  }
+
+  @media (min-width: 1280px) and (max-width: 1600px) {
+    padding: 0 15rem;
+  }
+
+  &__title {
+    color: $white;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+
+    &-btn {
+      position: relative;
+      margin: 2rem 0;
+    }
+  }
+}
+
+label {
+  color: $label-color;
+}
+
+.spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

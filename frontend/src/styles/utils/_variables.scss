@@ -1,0 +1,35 @@
+$primary: #00737e;
+$secondary: #21445b;
+$accent: #00a75d;
+$white: #fff;
+$black: #000;
+$form-error: #f94e4e;
+$label-color: #637381;
+
+:root {
+  --fs-base: 16px;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fs-base: 10px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  :root {
+    --fs-base: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  :root {
+    --fs-base: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --fs-base: 16px;
+  }
+}
