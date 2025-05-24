@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { strings } from '../../misc';
 
 @Component({
-  selector: 'app-help-section',
+  selector: 'as-help-section',
   standalone: true,
   imports: [MatCardModule],
   templateUrl: './help-section.component.html',

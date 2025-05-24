@@ -48,7 +48,7 @@ const sendReplyEmail = async (fullName, email, description) => {
       process.cwd(),
       "public",
       "templates",
-      "footer.html"
+      "footer.html",
     );
     footerContent = fs.readFileSync(footerPath, "utf-8");
   } catch (err) {
@@ -107,7 +107,7 @@ app.use(
         ],
       },
     },
-  })
+  }),
 );
 
 app.post("/api/send-email", validateContactForm, async (req, res) => {

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { strings } from '../../misc';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'as-profile',
   standalone: true,
   imports: [],
   templateUrl: './profile.component.html',

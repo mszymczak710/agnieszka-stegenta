@@ -5,7 +5,7 @@ import { AboutMeComponent } from './pages/about-me/about-me.component';
 import { ConsumerReviewsComponent } from './pages/consumer-reviews/consumer-reviews.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'as-root',
   standalone: true,
   imports: [HeaderComponent, HelpSectionComponent, ProfileComponent, FooterComponent, ConsumerReviewsComponent, AboutMeComponent],
   templateUrl: './app.component.html',

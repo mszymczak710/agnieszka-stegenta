@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { strings } from '../../misc';
 
 @Component({
-  selector: 'app-about-me',
+  selector: 'as-about-me',
   standalone: true,
   imports: [MatButtonModule, CommonModule],
   templateUrl: './about-me.component.html',

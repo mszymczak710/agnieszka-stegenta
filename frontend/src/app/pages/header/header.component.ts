@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { strings } from '../../misc';
 
 @Component({
-  selector: 'app-header',
+  selector: 'as-header',
   standalone: true,
   imports: [],
   templateUrl: './header.component.html',

@@ -10,7 +10,7 @@ const verifyRecaptcha = async (token) => {
         secret: secretKey,
         response: token,
       },
-    }
+    },
   );
 
   return response.data.success;

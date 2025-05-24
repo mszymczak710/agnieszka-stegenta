@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { strings } from '../../misc';
 
 @Component({
-  selector: 'app-consumer-reviews',
+  selector: 'as-consumer-reviews',
   standalone: true,
   imports: [MatIconModule, CommonModule],
   templateUrl: './consumer-reviews.component.html',

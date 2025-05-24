@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { ContactFormComponent, FooterInfoComponent } from '../../components';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'as-footer',
   standalone: true,
   imports: [ContactFormComponent, FooterInfoComponent],
   templateUrl: './footer.component.html',

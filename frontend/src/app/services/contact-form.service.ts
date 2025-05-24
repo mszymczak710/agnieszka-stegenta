@@ -13,7 +13,7 @@ export class ContactFormService {
   constructor(private http: HttpClient) {}
 
   sendContactForm(data: ContactFormData): Observable<undefined> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); // eslint-disable-line @typescript-eslint/naming-convention
     return this.http.post<undefined>(this.apiUrl, data, { headers });
   }
 }

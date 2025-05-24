@@ -23,7 +23,7 @@ const contactFormSchema = joi.object({
   }),
   recaptcha: joi.string().required().messages({
     "string.empty": "reCAPTCHA jest wymagana.",
-  })
+  }),
 });
 
 const validateContactForm = (req, res, next) => {

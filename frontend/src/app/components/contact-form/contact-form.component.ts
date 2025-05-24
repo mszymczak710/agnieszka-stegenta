@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { RecaptchaComponent, RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 import { environment } from '../../../environments/environment';
 import { strings } from '../../misc';
@@ -17,7 +17,7 @@ import { FormField } from '../../types';
 import { CustomValidators } from '../../validators/custom.validators';
 
 @Component({
-  selector: 'app-contact-form',
+  selector: 'as-contact-form',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -36,8 +36,6 @@ import { CustomValidators } from '../../validators/custom.validators';
   providers: [ContactFormService, ContactFormFacade, ToastService]
 })
 export class ContactFormComponent implements OnInit {
-  @ViewChild('reCaptcha') reCaptchaComponent: RecaptchaComponent;
-
   fields: FormField[];
   form: UntypedFormGroup;
   saving = false;
@@ -104,14 +102,18 @@ export class ContactFormComponent implements OnInit {
 
   hasErrorMessage(fieldName: string): boolean {
     const control = this.form.get(fieldName);
-    if (!control) return false;
+    if (!control) {
+      return false;
+    }
 
     return control.hasError('required') || control.hasError('email') || control.hasError('phoneNumber') || control.hasError('backend');
   }
 
   getErrorMessage(fieldName: string): string | null {
     const control = this.form.get(fieldName);
-    if (!control) return null;
+    if (!control) {
+      return null;
+    }
 
     if (control.hasError('required')) {
       return this.strings.errors.required;

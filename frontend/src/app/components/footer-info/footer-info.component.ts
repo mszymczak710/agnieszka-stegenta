@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { strings } from '../../misc';
 
 @Component({
-  selector: 'app-footer-info',
+  selector: 'as-footer-info',
   standalone: true,
   imports: [],
   templateUrl: './footer-info.component.html',
